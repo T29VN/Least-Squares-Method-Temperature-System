@@ -1,92 +1,102 @@
-﻿# BPTT - Binh Phuong Toi Thieu
+﻿# BPTT - Bình Phương Tối Thiểu
 
-Du an nay tinh hoi quy da thuc bac 2 bang phuong phap binh phuong toi thieu:
+Dự án này triển khai phép hồi quy đa thức bậc 2 bằng phương pháp bình phương tối thiểu:
 
 ```text
 y = a*x^2 + b*x + c
 ```
 
-Ma nguon chinh nam trong `lsm_calculation_project/`. Chuong trinh doc du lieu CSV gom hai cot `x` va `y`, tinh cac he so `a`, `b`, `c`, tao bao cao ket qua dang TXT va co the xuat bieu do PNG.
+Mã nguồn chính nằm trong thư mục `lsm_calculation_project/`. Chương trình đọc dữ liệu từ file CSV có hai cột `x` và `y`, tính các hệ số `a`, `b`, `c`, sau đó xuất báo cáo dạng TXT và có thể tạo biểu đồ PNG.
 
-## Cau truc thu muc
+## Cấu Trúc Thư Mục
 
 ```text
 BPTT/
-├── .claude/                         # Cau hinh/ky nang cho agent
+├── .claude/                         # Cấu hình/kỹ năng cho agent
 ├── lsm_calculation_project/
 │   ├── data/
-│   │   ├── du_lieu_sau_xu_ly.csv    # Du lieu mac dinh
-│   │   └── Du_lieu_moi.csv          # Du lieu thay the, dung qua --data
-│   ├── docs/diagrams/               # Tai lieu va so do draw.io
+│   │   ├── du_lieu_sau_xu_ly.csv    # Dữ liệu mặc định
+│   │   └── Du_lieu_moi.csv          # Dữ liệu thay thế, dùng qua --data
+│   ├── docs/diagrams/               # Tài liệu và sơ đồ draw.io
 │   ├── output/
-│   │   ├── equation_result.txt      # Bao cao ket qua
-│   │   └── bieu_do_fit.png          # Bieu do fit va phan du
+│   │   ├── equation_result.txt      # Báo cáo kết quả
+│   │   └── bieu_do_fit.png          # Biểu đồ fit và phần dư
 │   ├── src/
-│   │   ├── main.py                  # CLI va pipeline chinh
-│   │   ├── lsm_solver.py            # Thuat toan binh phuong toi thieu
-│   │   └── visualizer.py            # Tao bieu do bang matplotlib
-│   ├── tests/
-│   │   ├── test_algorithm.py        # Custom test runner
-│   │   └── tinh_phuong_trinh_bac_2.py
-│   ├── requirements.txt
-│   └── README.md
+│   │   ├── main.py                  # CLI và pipeline chính
+│   │   ├── lsm_solver.py            # Thuật toán bình phương tối thiểu
+│   │   └── visualizer.py            # Tạo biểu đồ bằng matplotlib
+│   └── tests/
+│       ├── test_algorithm.py        # Custom test runner
+│       └── tinh_phuong_trinh_bac_2.py
+├── requirements.txt                 # Dependency cho project
+├── README.md                        # File giới thiệu tổng quan này
 ├── AGENTS.md
 ├── CLAUDE.md
 └── analysis_report.md
 ```
 
-## Chuc nang chinh
+## Chức Năng Chính
 
-- Doc file CSV co hai cot `x` va `y`.
-- Fit da thuc bac 2 `y = a*x^2 + b*x + c`.
-- Su dung `fractions.Fraction` trong cac buoc tinh chinh de giam sai so lam tron.
-- Tinh cac chi so thong ke: residuals, SSE, SSR, SST, R^2, adjusted R^2, MSE, MSR, F-statistic, standard error va t-statistics.
-- Ghi bao cao chi tiet ra `output/equation_result.txt`.
-- Tao bieu do tong hop ra `output/bieu_do_fit.png` neu khong dung `--no-chart`.
+- Đọc file CSV có hai cột `x` và `y`.
+- Fit đa thức bậc 2 theo mô hình `y = a*x^2 + b*x + c`.
+- Dùng `fractions.Fraction` trong các bước tính chính để giữ độ chính xác tốt hơn so với tính trực tiếp bằng `float`.
+- Tính các chỉ số thống kê như residuals, SSE, SSR, SST, R², adjusted R², MSE, MSR, F-statistic, standard error và t-statistics.
+- Ghi báo cáo chi tiết ra `lsm_calculation_project/output/equation_result.txt`.
+- Tạo biểu đồ tổng hợp ra `lsm_calculation_project/output/bieu_do_fit.png` nếu không dùng tùy chọn `--no-chart`.
 
-## Cai dat
+## Cài Đặt
+
+Từ thư mục gốc `BPTT/`, cài dependency bằng:
 
 ```powershell
-cd lsm_calculation_project
 pip install -r requirements.txt
 ```
 
-Dependency hien tai:
+Các dependency hiện tại:
 
 ```text
 matplotlib>=3.5
+numpy>=1.23
 ```
 
-## Cach chay
+Trong đó:
 
-Chay voi du lieu mac dinh `data/du_lieu_sau_xu_ly.csv`:
+- `matplotlib` được dùng bởi `src/visualizer.py` để tạo biểu đồ.
+- `numpy` được khai báo vì script phụ `tests/tinh_phuong_trinh_bac_2.py` đang import `numpy`.
+
+## Cách Chạy Chương Trình
+
+Chạy với dữ liệu mặc định `data/du_lieu_sau_xu_ly.csv`:
 
 ```powershell
 cd lsm_calculation_project
 python src/main.py
 ```
 
-Chi dinh file du lieu khac:
+Chạy với file dữ liệu thay thế:
 
 ```powershell
+cd lsm_calculation_project
 python src/main.py --data data/Du_lieu_moi.csv
 ```
 
-Chi xuat bao cao TXT, khong tao bieu do:
+Chỉ xuất báo cáo TXT, không tạo biểu đồ:
 
 ```powershell
+cd lsm_calculation_project
 python src/main.py --no-chart
 ```
 
-Chi dinh thu muc output:
+Chỉ định thư mục output khác:
 
 ```powershell
+cd lsm_calculation_project
 python src/main.py --output-dir output
 ```
 
-## Du lieu dau vao
+## Dữ Liệu Đầu Vào
 
-File CSV can co header:
+File CSV cần có header `x,y`, ví dụ:
 
 ```csv
 x,y
@@ -95,55 +105,64 @@ x,y
 2,0.939016393443
 ```
 
-Trong project hien co:
+Trong project hiện có hai file dữ liệu:
 
-- `du_lieu_sau_xu_ly.csv`: du lieu mac dinh. Bo du lieu nay tao ra bo he so `a`, `b`, `c` hien dang duoc hardcode trong script phu `tests/tinh_phuong_trinh_bac_2.py`.
-- `Du_lieu_moi.csv`: du lieu thay the, chi duoc dung khi truyen qua tuy chon `--data`.
+- `lsm_calculation_project/data/du_lieu_sau_xu_ly.csv`: dữ liệu mặc định. Bộ dữ liệu này tạo ra bộ hệ số `a`, `b`, `c` hiện đang được hardcode trong script phụ `tests/tinh_phuong_trinh_bac_2.py`.
+- `lsm_calculation_project/data/Du_lieu_moi.csv`: dữ liệu thay thế, chỉ được dùng khi truyền qua tùy chọn `--data`.
 
-Khong nen gan y nghia vat ly cho `x`, `y`, `TO` hoac `TA` neu khong co tai lieu rieng xac nhan.
+Không nên tự gán ý nghĩa vật lý cho `x`, `y`, `TO` hoặc `TA` nếu chưa có tài liệu riêng xác nhận.
 
-## Kiem thu
+## Kết Quả Đầu Ra
 
-File `tests/test_algorithm.py` la custom test runner tu viet, khong phai pytest hay unittest.
+Sau khi chạy thành công, chương trình có thể tạo:
 
-Chay test:
+- `lsm_calculation_project/output/equation_result.txt`: báo cáo chi tiết gồm hệ số hồi quy, phương trình, ANOVA, R², adjusted R², F-statistic, sai số và bảng so sánh.
+- `lsm_calculation_project/output/bieu_do_fit.png`: biểu đồ gồm dữ liệu thực, đường fit và phần dư.
+- Console stdout: bản tóm tắt kết quả in trực tiếp ra màn hình.
+
+## Kiểm Thử
+
+File `lsm_calculation_project/tests/test_algorithm.py` là custom test runner tự viết, không phải pytest hoặc unittest.
+
+Chạy kiểm thử:
 
 ```powershell
 cd lsm_calculation_project
 python tests/test_algorithm.py
 ```
 
-Bo test hien co kiem tra:
+Bộ kiểm thử hiện có kiểm tra:
 
-- Du lieu da biet voi nghiem ky vong.
-- Pipeline voi file CSV mac dinh.
-- Mot so loi validation.
-- Tinh nhat quan cua cac chi so thong ke.
+- Dữ liệu đã biết với nghiệm kỳ vọng.
+- Pipeline với file CSV mặc định.
+- Một số lỗi validation.
+- Tính nhất quán của các chỉ số thống kê.
 
-## Tai lieu so do
+## Tài Liệu Và Sơ Đồ
 
-So do he thong draw.io nam tai:
+Sơ đồ hệ thống draw.io nằm tại:
 
 ```text
 lsm_calculation_project/docs/diagrams/source/BPTT_system_diagrams.drawio
 ```
 
-File nay gom cac trang:
+File này gồm các trang:
 
-- Kien truc tong quan.
-- Luong thuc thi chinh.
-- Binh phuong toi thieu va thong ke.
-- Khu Gauss.
-- Pham vi kiem thu.
+- Kiến trúc tổng quan.
+- Luồng thực thi chính.
+- Bình phương tối thiểu và thống kê.
+- Khử Gauss.
+- Phạm vi kiểm thử.
 
-Trang thai tiep tuc cong viec so do duoc ghi trong:
+Trạng thái tiếp tục công việc sơ đồ được ghi tại:
 
 ```text
 lsm_calculation_project/docs/diagrams/resume_state.md
 ```
 
-## Luu y an toan khi phat trien
+## Lưu Ý Khi Phát Triển
 
-- Khong chay `main.py` neu ban khong muon ghi de `output/equation_result.txt` va `output/bieu_do_fit.png`.
-- Khong sua cac file output da tao neu can giu nguyen ket qua hien tai.
-- Nen kiem tra du lieu dau vao truoc khi so sanh he so `a`, `b`, `c`, vi hai CSV hien co cho ra hai bo he so khac nhau.
+- Không chạy `main.py` nếu bạn không muốn ghi đè `output/equation_result.txt` và `output/bieu_do_fit.png`.
+- Không sửa các file output đã tạo nếu cần giữ nguyên kết quả hiện tại.
+- Nên kiểm tra file dữ liệu đầu vào trước khi so sánh hệ số `a`, `b`, `c`, vì hai CSV hiện có cho ra hai bộ hệ số khác nhau.
+- Khi cập nhật tài liệu, ưu tiên phản ánh đúng mã local hiện tại thay vì dựa vào nguồn bên ngoài.
