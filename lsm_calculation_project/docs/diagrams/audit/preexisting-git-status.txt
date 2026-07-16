@@ -1,0 +1,16 @@
+ D "Screenshot 2026-04-18 153612.png"
+A  lsm_calculation_project/README.md
+MM lsm_calculation_project/data/du_lieu_sau_xu_ly.csv
+AM lsm_calculation_project/output/bieu_do_fit.png
+MM lsm_calculation_project/output/equation_result.txt
+A  lsm_calculation_project/requirements.txt
+M  lsm_calculation_project/src/__pycache__/lsm_solver.cpython-314.pyc
+A  lsm_calculation_project/src/__pycache__/visualizer.cpython-314.pyc
+M  lsm_calculation_project/src/lsm_solver.py
+M  lsm_calculation_project/src/main.py
+A  lsm_calculation_project/src/visualizer.py
+M  lsm_calculation_project/tests/test_algorithm.py
+?? .agents/
+?? analysis_report.md
+?? lsm_calculation_project/data/Du_lieu_moi.csv
+?? lsm_calculation_project/tests/tinh_phuong_trinh_bac_2.py

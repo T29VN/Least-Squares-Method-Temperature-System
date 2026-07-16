@@ -1,0 +1,789 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<mxfile host="drawio" modified="2026-07-16T11:13:23.888213+07:00" agent="Codex" version="26.0.0" type="device">
+  <diagram id="01_Ki_n_tr_c_t_ng_quan" name="01 — Kiến trúc tổng quan">
+    <mxGraphModel dx="1100" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="01_Ki_n_tr_c_t_ng_quan_title" value="01 — Kiến trúc tổng quan" style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=22;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1060" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="01_Ki_n_tr_c_t_ng_quan_subtitle" value="Tổng quan project local. Không suy diễn ý nghĩa vật lý của x, y, TO hoặc TA." style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="65" y="60" width="1040" height="35" as="geometry" />
+        </mxCell>
+        <object id="p1_in" label="Đầu vào" source_file="data" function_or_scope="CSV inputs" confidence="CONFIRMED" diagram_role="container">
+          <mxCell style="swimlane;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;recursiveResize=0;fontFamily=Arial;fontSize=12;fontStyle=1;fillColor=#f8f9fa;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="35" y="110" width="250" height="210" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_pipe" label="Pipeline chính" source_file="src" function_or_scope="main pipeline" confidence="CONFIRMED" diagram_role="container">
+          <mxCell style="swimlane;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;recursiveResize=0;fontFamily=Arial;fontSize=12;fontStyle=1;fillColor=#f8f9fa;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="325" y="100" width="500" height="320" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_out" label="Đầu ra" source_file="output" function_or_scope="runtime outputs" confidence="CONFIRMED" diagram_role="container">
+          <mxCell style="swimlane;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;recursiveResize=0;fontFamily=Arial;fontSize=12;fontStyle=1;fillColor=#f8f9fa;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="865" y="110" width="260" height="250" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_np" label="Kiểm thử và script phụ, tách khỏi production" source_file="tests" function_or_scope="non-production" confidence="CONFIRMED" diagram_role="container">
+          <mxCell style="swimlane;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;recursiveResize=0;fontFamily=Arial;fontSize=12;fontStyle=1;fillColor=#f8f9fa;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="250" y="470" width="690" height="165" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_default" label="du_lieu_sau_xu_ly.csv&#10;dữ liệu mặc định" source_file="data/du_lieu_sau_xu_ly.csv" function_or_scope="CSV x,y" confidence="CONFIRMED" diagram_role="default input">
+          <mxCell style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+            <mxGeometry x="60" y="160" width="200" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_alt" label="Du_lieu_moi.csv&#10;dữ liệu thay thế qua --data" source_file="data/Du_lieu_moi.csv" function_or_scope="CSV x,y" confidence="CONFIRMED" diagram_role="alternate input">
+          <mxCell style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+            <mxGeometry x="60" y="245" width="200" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_main" label="main.py&#10;CLI orchestrator" source_file="src/main.py" function_or_scope="main(), parse_args()" confidence="CONFIRMED" diagram_role="orchestrator">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+            <mxGeometry x="360" y="160" width="120" height="65" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_solver" label="lsm_solver.py&#10;core solver" source_file="src/lsm_solver.py" function_or_scope="binh_phuong_toi_thieu()" confidence="CONFIRMED" diagram_role="solver">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="535" y="160" width="130" height="65" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_kq" label="kq&#10;dictionary kết quả" source_file="src/lsm_solver.py" function_or_scope="return dict" confidence="CONFIRMED" diagram_role="result">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="700" y="160" width="105" height="65" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_summary" label="in_tom_tat(kq)" source_file="src/main.py" function_or_scope="in_tom_tat()" confidence="CONFIRMED" diagram_role="console formatter">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="410" y="300" width="125" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_report" label="tao_bao_cao(kq)" source_file="src/main.py" function_or_scope="tao_bao_cao()" confidence="CONFIRMED" diagram_role="text writer">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="570" y="300" width="130" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_viz" label="visualizer.py&#10;tao_bieu_do_tong_hop(kq)" source_file="src/visualizer.py" function_or_scope="tao_bieu_do_tong_hop()" confidence="CONFIRMED" diagram_role="chart renderer">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="720" y="300" width="150" height="65" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_stdout" label="Console stdout" source_file="src/main.py" function_or_scope="print()" confidence="CONFIRMED" diagram_role="console output">
+          <mxCell style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="890" y="160" width="210" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_txt" label="output/equation_result.txt" source_file="output/equation_result.txt" function_or_scope="written by tao_bao_cao()" confidence="CONFIRMED" diagram_role="text output">
+          <mxCell style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="890" y="230" width="210" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_png" label="output/bieu_do_fit.png" source_file="output/bieu_do_fit.png" function_or_scope="written by visualizer" confidence="CONFIRMED" diagram_role="image output">
+          <mxCell style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="890" y="300" width="210" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_test" label="tests/test_algorithm.py&#10;custom test runner" source_file="tests/test_algorithm.py" function_or_scope="main(), four test functions" confidence="CONFIRMED" diagram_role="test runner">
+          <mxCell style="rounded=1;arcSize=8;dashed=1;dashPattern=8 4;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="300" y="535" width="255" height="70" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p1_aux" label="tests/tinh_phuong_trinh_bac_2.py&#10;script phụ, untracked" source_file="tests/tinh_phuong_trinh_bac_2.py" function_or_scope="standalone input()/print()" confidence="CONFIRMED" diagram_role="auxiliary script">
+          <mxCell style="rounded=1;arcSize=8;dashed=1;dashPattern=8 4;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="635" y="535" width="255" height="70" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="p1e1" value="CSV" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p1_default" target="p1_main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1e2" value="--data" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="p1_alt" target="p1_main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1e3" value="gọi solver" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p1_main" target="p1_solver">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1e4" value="trả kq" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p1_solver" target="p1_kq">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1e5" value="kq" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p1_kq" target="p1_summary">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1e6" value="print" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p1_summary" target="p1_stdout">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1e7" value="kq" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p1_kq" target="p1_report">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1e8" value="ghi TXT" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p1_report" target="p1_txt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1e9" value="kq" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p1_kq" target="p1_viz">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p1e10" value="ghi PNG" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p1_viz" target="p1_png">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="01_Ki_n_tr_c_t_ng_quan_legend_title" value="Chú giải: màu/viền chỉ hỗ trợ đọc nhanh; nhãn và edge mới là nguồn ý nghĩa." style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="745" width="520" height="25" as="geometry" />
+        </mxCell>
+        <object id="01_Ki_n_tr_c_t_ng_quan_leg_0" label="Module/xử lý" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="40" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="01_Ki_n_tr_c_t_ng_quan_leg_1" label="File dữ liệu" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+            <mxGeometry x="205" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="01_Ki_n_tr_c_t_ng_quan_leg_2" label="Đầu ra" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="shape=document;boundedLbl=1;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="370" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="01_Ki_n_tr_c_t_ng_quan_leg_3" label="Tách khỏi production" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=8;dashed=1;dashPattern=8 4;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="535" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="02_Lu_ng_th_c_thi_ch_nh" name="02 — Luồng thực thi chính">
+    <mxGraphModel dx="1100" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="02_Lu_ng_th_c_thi_ch_nh_title" value="02 — Luồng thực thi chính" style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=22;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1060" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="02_Lu_ng_th_c_thi_ch_nh_subtitle" value="Luồng chính của main.py, gồm nhánh lỗi và nhánh --no-chart với nhãn Có/Không trên edge." style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="65" y="60" width="1040" height="35" as="geometry" />
+        </mxCell>
+        <object id="p2_start" label="Bắt đầu&#10;python main.py" source_file="src/main.py" function_or_scope="__main__ guard" confidence="CONFIRMED" diagram_role="start">
+          <mxCell style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="60" y="110" width="150" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_parse" label="parse_args()" source_file="src/main.py" function_or_scope="parse_args()" confidence="CONFIRMED" diagram_role="CLI parsing">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="60" y="200" width="150" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_paths" label="Xác định data path,&#10;output directory và --no-chart" source_file="src/main.py" function_or_scope="main(): path setup" confidence="CONFIRMED" diagram_role="path setup">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="45" y="290" width="185" height="70" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_solver" label="binh_phuong_toi_thieu(data_path)" source_file="src/main.py" function_or_scope="main() calls solver" confidence="CONFIRMED" diagram_role="solver call">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="45" y="405" width="185" height="65" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_err_dec" label="FileNotFoundError&#10;hoặc ValueError?" source_file="src/main.py" function_or_scope="except block" confidence="CONFIRMED" diagram_role="error decision">
+          <mxCell style="rhombus;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="70" y="510" width="140" height="90" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_print_err" label="In thông báo lỗi" source_file="src/main.py" function_or_scope="print error" confidence="CONFIRMED" diagram_role="error handling">
+          <mxCell style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="300" y="520" width="145" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_exit1" label="sys.exit(1)&#10;kết thúc lỗi" source_file="src/main.py" function_or_scope="sys.exit(1)" confidence="CONFIRMED" diagram_role="error end">
+          <mxCell style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="525" y="520" width="145" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_summary" label="in_tom_tat(kq)&#10;+ in thời gian" source_file="src/main.py" function_or_scope="in_tom_tat()" confidence="CONFIRMED" diagram_role="summary output">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="300" y="650" width="155" height="65" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_report" label="tao_bao_cao(kq, txt_file)&#10;lưu equation_result.txt" source_file="src/main.py" function_or_scope="tao_bao_cao()" confidence="CONFIRMED" diagram_role="text report">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="510" y="650" width="185" height="65" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_dec_chart" label="--no-chart?" source_file="src/main.py" function_or_scope="if not args.no_chart" confidence="CONFIRMED" diagram_role="chart decision">
+          <mxCell style="rhombus;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="760" y="635" width="130" height="95" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_skip" label="Bỏ qua biểu đồ" source_file="src/main.py" function_or_scope="else branch" confidence="CONFIRMED" diagram_role="skip chart">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+            <mxGeometry x="960" y="610" width="135" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_chart" label="tao_bieu_do_tong_hop(kq, chart_file)&#10;lưu bieu_do_fit.png" source_file="src/main.py; src/visualizer.py" function_or_scope="chart branch" confidence="CONFIRMED" diagram_role="chart output">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="935" y="725" width="190" height="70" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p2_done" label="HOÀN TẤT&#10;exit code 0" source_file="src/main.py" function_or_scope="normal completion" confidence="CONFIRMED" diagram_role="success end">
+          <mxCell style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="760" y="760" width="140" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="p2e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p2_start" target="p2_parse">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e2" value="args" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p2_parse" target="p2_paths">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e3" value="data_path" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p2_paths" target="p2_solver">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e4" value="kq hoặc exception" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p2_solver" target="p2_err_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e5" value="Có" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;strokeColor=#b85450;fontColor=#b85450;" edge="1" parent="1" source="p2_err_dec" target="p2_print_err">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p2_print_err" target="p2_exit1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e7" value="Không" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;strokeColor=#82b366;fontColor=#2d7600;" edge="1" parent="1" source="p2_err_dec" target="p2_summary">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e8" value="kq" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p2_summary" target="p2_report">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p2_report" target="p2_dec_chart">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e10" value="Có" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p2_dec_chart" target="p2_skip">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e11" value="Không" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;strokeColor=#82b366;fontColor=#2d7600;" edge="1" parent="1" source="p2_dec_chart" target="p2_chart">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e12" value="hoàn tất" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p2_skip" target="p2_done">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2e13" value="hoàn tất" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p2_chart" target="p2_done">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="02_Lu_ng_th_c_thi_ch_nh_legend_title" value="Chú giải: màu/viền chỉ hỗ trợ đọc nhanh; nhãn và edge mới là nguồn ý nghĩa." style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="745" width="520" height="25" as="geometry" />
+        </mxCell>
+        <object id="02_Lu_ng_th_c_thi_ch_nh_leg_0" label="Bắt đầu/kết thúc" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="40" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="02_Lu_ng_th_c_thi_ch_nh_leg_1" label="Xử lý" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="205" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="02_Lu_ng_th_c_thi_ch_nh_leg_2" label="Điều kiện" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rhombus;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="370" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="02_Lu_ng_th_c_thi_ch_nh_leg_3" label="Ngoại lệ" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="535" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="03_B_nh_ph_ng_t_i_thi_u_v_th_ng_k" name="03 — Bình phương tối thiểu và thống kê">
+    <mxGraphModel dx="1100" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="03_B_nh_ph_ng_t_i_thi_u_v_th_ng_k_title" value="03 — Bình phương tối thiểu và thống kê" style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=22;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1060" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="03_B_nh_ph_ng_t_i_thi_u_v_th_ng_k_subtitle" value="Pipeline solver dùng Fraction cho tính toán chính; các lỗi đọc và validation được gom để giữ sơ đồ dễ đọc." style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="65" y="60" width="1040" height="35" as="geometry" />
+        </mxCell>
+        <object id="p3_start" label="binh_phuong_toi_thieu()" source_file="src/lsm_solver.py" function_or_scope="binh_phuong_toi_thieu()" confidence="CONFIRMED" diagram_role="solver step">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="25" y="110" width="125" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_read" label="doc_du_lieu_csv()" source_file="src/lsm_solver.py" function_or_scope="doc_du_lieu_csv()" confidence="CONFIRMED" diagram_role="solver step">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="167" y="110" width="125" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_val" label="kiem_tra_du_lieu()" source_file="src/lsm_solver.py" function_or_scope="kiem_tra_du_lieu()" confidence="CONFIRMED" diagram_role="solver step">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="309" y="110" width="125" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_sum" label="tinh_cac_tong()" source_file="src/lsm_solver.py" function_or_scope="tinh_cac_tong()" confidence="CONFIRMED" diagram_role="solver step">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="451" y="110" width="125" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_norm" label="lap_he_phuong_trinh_chuan_tac()" source_file="src/lsm_solver.py" function_or_scope="lap_he_phuong_trinh_chuan_tac()" confidence="CONFIRMED" diagram_role="solver step">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="593" y="110" width="125" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_gauss" label="giai_he_gauss()" source_file="src/lsm_solver.py" function_or_scope="giai_he_gauss()" confidence="CONFIRMED" diagram_role="solver step">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="735" y="110" width="125" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_abc" label="nghiệm&#10;[a, b, c]" source_file="src/lsm_solver.py" function_or_scope="nghiệm&#10;[a, b, c]" confidence="CONFIRMED" diagram_role="solver step">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="877" y="110" width="125" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_yhat" label="tính y_du_doan" source_file="src/lsm_solver.py" function_or_scope="tính y_du_doan" confidence="CONFIRMED" diagram_role="solver step">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="1019" y="110" width="125" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_stats" label="tinh_thong_ke()&#10;nhóm thống kê" source_file="src/lsm_solver.py" function_or_scope="tinh_thong_ke()" confidence="CONFIRMED" diagram_role="statistics group">
+          <mxCell style="swimlane;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;recursiveResize=0;fontFamily=Arial;fontSize=12;fontStyle=1;fillColor=#f8f9fa;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="135" y="250" width="760" height="270" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_res" label="residuals" source_file="src/lsm_solver.py" function_or_scope="sai_so" confidence="CONFIRMED" diagram_role="statistic">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="165" y="310" width="120" height="45" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_ss" label="SSE, SSR, SST" source_file="src/lsm_solver.py" function_or_scope="SSE/SSR/SST" confidence="CONFIRMED" diagram_role="statistic">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="315" y="310" width="120" height="45" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_r2" label="R² và R²_adj" source_file="src/lsm_solver.py" function_or_scope="R2/R2_adj" confidence="CONFIRMED" diagram_role="statistic">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="465" y="310" width="120" height="45" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_ms" label="MSE và MSR" source_file="src/lsm_solver.py" function_or_scope="MSE/MSR" confidence="CONFIRMED" diagram_role="statistic">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="615" y="310" width="120" height="45" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_f" label="F statistic" source_file="src/lsm_solver.py" function_or_scope="F_stat" confidence="CONFIRMED" diagram_role="statistic">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="165" y="405" width="120" height="45" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_inv" label="nghich_dao_ma_tran(A)" source_file="src/lsm_solver.py" function_or_scope="nghich_dao_ma_tran()" confidence="CONFIRMED" diagram_role="statistic">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="315" y="405" width="150" height="45" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_se" label="SE hệ số" source_file="src/lsm_solver.py" function_or_scope="SE_he_so" confidence="CONFIRMED" diagram_role="statistic">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="505" y="405" width="120" height="45" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_t" label="t-statistics&#10;sai số phần trăm" source_file="src/lsm_solver.py" function_or_scope="t_stats/sai_so_phan_tram" confidence="CONFIRMED" diagram_role="statistic">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="655" y="405" width="150" height="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_special" label="Nhánh đặc biệt&#10;SST = 0&#10;df_res &lt;= 0&#10;MSE &lt;= 0&#10;A_inv is None&#10;SE quá nhỏ&#10;y_data[i] = 0" source_file="src/lsm_solver.py" function_or_scope="tinh_thong_ke() branches" confidence="CONFIRMED" diagram_role="special branches">
+          <mxCell style="rhombus;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="940" y="270" width="170" height="210" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_errors" label="Nhóm ngoại lệ đọc/validation&#10;FileNotFoundError, ValueError,&#10;pivot = 0" source_file="src/lsm_solver.py" function_or_scope="read/validation/gauss exceptions" confidence="CONFIRMED" diagram_role="exceptions">
+          <mxCell style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="25" y="315" width="100" height="150" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_fmt" label="dinh_dang_phuong_trinh()" source_file="src/lsm_solver.py" function_or_scope="dinh_dang_phuong_trinh()" confidence="CONFIRMED" diagram_role="format equation">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="310" y="590" width="180" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_pack" label="đóng gói dictionary kq" source_file="src/lsm_solver.py" function_or_scope="return dict" confidence="CONFIRMED" diagram_role="package result">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="545" y="590" width="170" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p3_return" label="trả kết quả kq" source_file="src/lsm_solver.py" function_or_scope="return" confidence="CONFIRMED" diagram_role="return">
+          <mxCell style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="770" y="590" width="150" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="p3e0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p3_start" target="p3_read">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p3_read" target="p3_val">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p3_val" target="p3_sum">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p3_sum" target="p3_norm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p3_norm" target="p3_gauss">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p3_gauss" target="p3_abc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p3_abc" target="p3_yhat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e_stats" value="x_data, y_data, y_du_doan, A" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p3_yhat" target="p3_stats">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e_sp" value="edge cases" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="p3_stats" target="p3_special">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e_fmt" value="thong_ke" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p3_stats" target="p3_fmt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e_pack" value="phuong_trinh" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p3_fmt" target="p3_pack">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e_ret" value="kq" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p3_pack" target="p3_return">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e_err1" value="lỗi đọc CSV" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;strokeColor=#b85450;fontColor=#b85450;" edge="1" parent="1" source="p3_read" target="p3_errors">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e_err2" value="lỗi validation" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;strokeColor=#b85450;fontColor=#b85450;" edge="1" parent="1" source="p3_val" target="p3_errors">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3e_err3" value="pivot 0" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;strokeColor=#b85450;fontColor=#b85450;" edge="1" parent="1" source="p3_gauss" target="p3_errors">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="03_B_nh_ph_ng_t_i_thi_u_v_th_ng_k_legend_title" value="Chú giải: màu/viền chỉ hỗ trợ đọc nhanh; nhãn và edge mới là nguồn ý nghĩa." style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="745" width="520" height="25" as="geometry" />
+        </mxCell>
+        <object id="03_B_nh_ph_ng_t_i_thi_u_v_th_ng_k_leg_0" label="Bước tính toán" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="40" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="03_B_nh_ph_ng_t_i_thi_u_v_th_ng_k_leg_1" label="Nhóm thống kê" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="swimlane;html=1;whiteSpace=wrap;startSize=30;container=1;collapsible=0;recursiveResize=0;fontFamily=Arial;fontSize=12;fontStyle=1;fillColor=#f8f9fa;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="205" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="03_B_nh_ph_ng_t_i_thi_u_v_th_ng_k_leg_2" label="Nhánh đặc biệt" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rhombus;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="370" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="03_B_nh_ph_ng_t_i_thi_u_v_th_ng_k_leg_3" label="Ngoại lệ" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="535" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="04_Kh_Gauss" name="04 — Khử Gauss">
+    <mxGraphModel dx="1100" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="04_Kh_Gauss_title" value="04 — Khử Gauss" style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=22;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1060" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="04_Kh_Gauss_subtitle" value="Không ghi determinant vì mã chỉ kiểm tra pivot bằng 0 sau partial pivoting." style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="65" y="60" width="1040" height="35" as="geometry" />
+        </mxCell>
+        <object id="p4_start" label="Nhận A và B" source_file="src/lsm_solver.py" function_or_scope="giai_he_gauss(A, B)" confidence="CONFIRMED" diagram_role="start">
+          <mxCell style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="80" y="100" width="150" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_aug" label="Tạo ma trận mở rộng&#10;M = [A|B]" source_file="src/lsm_solver.py" function_or_scope="augmented matrix" confidence="CONFIRMED" diagram_role="setup">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="80" y="195" width="170" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_loop" label="Lặp theo từng cột pivot" source_file="src/lsm_solver.py" function_or_scope="for cot in range(n)" confidence="CONFIRMED" diagram_role="loop">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+            <mxGeometry x="80" y="305" width="170" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_find" label="Tìm hàng có trị tuyệt đối&#10;pivot lớn nhất" source_file="src/lsm_solver.py" function_or_scope="partial pivoting" confidence="CONFIRMED" diagram_role="pivot selection">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="330" y="305" width="190" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_swap_dec" label="Cần đổi hàng?" source_file="src/lsm_solver.py" function_or_scope="if hang_max != cot" confidence="CONFIRMED" diagram_role="swap decision">
+          <mxCell style="rhombus;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="585" y="290" width="130" height="90" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_swap" label="Đổi hàng" source_file="src/lsm_solver.py" function_or_scope="row swap" confidence="CONFIRMED" diagram_role="row swap">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+            <mxGeometry x="790" y="245" width="120" height="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_pivot_dec" label="Pivot bằng 0?" source_file="src/lsm_solver.py" function_or_scope="if M[cot][cot] == 0" confidence="CONFIRMED" diagram_role="zero pivot decision">
+          <mxCell style="rhombus;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="790" y="350" width="130" height="90" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_error" label="ValueError:&#10;ma trận suy biến" source_file="src/lsm_solver.py" function_or_scope="raise ValueError" confidence="CONFIRMED" diagram_role="error end">
+          <mxCell style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="980" y="365" width="145" height="65" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_elim" label="Khử các phần tử&#10;phía dưới pivot" source_file="src/lsm_solver.py" function_or_scope="forward elimination" confidence="CONFIRMED" diagram_role="eliminate below">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="560" y="500" width="180" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_more" label="Còn cột pivot?" source_file="src/lsm_solver.py" function_or_scope="loop continuation" confidence="CONFIRMED" diagram_role="loop decision">
+          <mxCell style="rhombus;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="330" y="485" width="130" height="90" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_back" label="Thế ngược" source_file="src/lsm_solver.py" function_or_scope="back substitution" confidence="CONFIRMED" diagram_role="back substitution">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="330" y="640" width="150" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_return" label="Trả [a, b, c]" source_file="src/lsm_solver.py" function_or_scope="return nghiem" confidence="CONFIRMED" diagram_role="return">
+          <mxCell style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="580" y="640" width="150" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p4_end" label="Kết thúc" source_file="src/lsm_solver.py" function_or_scope="normal end" confidence="CONFIRMED" diagram_role="end">
+          <mxCell style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="830" y="640" width="130" height="55" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="p4e1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p4_start" target="p4_aug">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p4_aug" target="p4_loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p4_loop" target="p4_find">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p4_find" target="p4_swap_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e5" value="Có" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p4_swap_dec" target="p4_swap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p4_swap" target="p4_pivot_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e7" value="Không" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;strokeColor=#82b366;fontColor=#2d7600;" edge="1" parent="1" source="p4_swap_dec" target="p4_pivot_dec">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e8" value="Có" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;strokeColor=#b85450;fontColor=#b85450;" edge="1" parent="1" source="p4_pivot_dec" target="p4_error">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e9" value="Không" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;strokeColor=#82b366;fontColor=#2d7600;" edge="1" parent="1" source="p4_pivot_dec" target="p4_elim">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p4_elim" target="p4_more">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e11" value="Có" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p4_more" target="p4_loop">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e12" value="Không" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;strokeColor=#82b366;fontColor=#2d7600;" edge="1" parent="1" source="p4_more" target="p4_back">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p4_back" target="p4_return">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4e14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p4_return" target="p4_end">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="04_Kh_Gauss_legend_title" value="Chú giải: màu/viền chỉ hỗ trợ đọc nhanh; nhãn và edge mới là nguồn ý nghĩa." style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="745" width="520" height="25" as="geometry" />
+        </mxCell>
+        <object id="04_Kh_Gauss_leg_0" label="Vòng lặp pivot" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+            <mxGeometry x="40" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="04_Kh_Gauss_leg_1" label="Điều kiện" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rhombus;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+            <mxGeometry x="205" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="04_Kh_Gauss_leg_2" label="Ngoại lệ" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="370" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="04_Kh_Gauss_leg_3" label="Kết thúc" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="535" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="05_Ph_m_vi_ki_m_th" name="05 — Phạm vi kiểm thử">
+    <mxGraphModel dx="1100" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="05_Ph_m_vi_ki_m_th_title" value="05 — Phạm vi kiểm thử" style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=22;fontStyle=1;align=center;" vertex="1" parent="1">
+          <mxGeometry x="50" y="20" width="1060" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="05_Ph_m_vi_ki_m_th_subtitle" value="Custom test runner tự viết: chạy bốn test, thu pass/fail, trả exit code 0 hoặc 1." style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="65" y="60" width="1040" height="35" as="geometry" />
+        </mxCell>
+        <object id="p5_runner" label="main()&#10;custom test runner" source_file="tests/test_algorithm.py" function_or_scope="main()" confidence="CONFIRMED" diagram_role="test runner">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+            <mxGeometry x="55" y="130" width="170" height="65" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_assert" label="assert_gan_bang()" source_file="tests/test_algorithm.py" function_or_scope="assert_gan_bang()" confidence="CONFIRMED" diagram_role="helper">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="55" y="260" width="170" height="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_print" label="in_ket_qua_test()" source_file="tests/test_algorithm.py" function_or_scope="in_ket_qua_test()" confidence="CONFIRMED" diagram_role="helper">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="55" y="330" width="170" height="50" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_exit" label="Thu pass/fail&#10;exit code 0 hoặc 1" source_file="tests/test_algorithm.py" function_or_scope="return code" confidence="CONFIRMED" diagram_role="test result">
+          <mxCell style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=1;" vertex="1" parent="1">
+            <mxGeometry x="55" y="610" width="170" height="65" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_t1" label="test_du_lieu_da_biet()" source_file="tests/test_algorithm.py" function_or_scope="test_du_lieu_da_biet()" confidence="CONFIRMED" diagram_role="test">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="315" y="105" width="185" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_t2" label="test_du_lieu_csv()" source_file="tests/test_algorithm.py" function_or_scope="test_du_lieu_csv()" confidence="CONFIRMED" diagram_role="test">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="315" y="225" width="185" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_t3" label="test_validation()" source_file="tests/test_algorithm.py" function_or_scope="test_validation()" confidence="CONFIRMED" diagram_role="test">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="315" y="345" width="185" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_t4" label="test_thong_ke()" source_file="tests/test_algorithm.py" function_or_scope="test_thong_ke()" confidence="CONFIRMED" diagram_role="test">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="315" y="465" width="185" height="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_sum" label="tinh_cac_tong()" source_file="src/lsm_solver.py" function_or_scope="tinh_cac_tong()" confidence="CONFIRMED" diagram_role="production">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="610" y="70" width="210" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_norm" label="lap_he_phuong_trinh_chuan_tac()" source_file="src/lsm_solver.py" function_or_scope="lap_he_phuong_trinh_chuan_tac()" confidence="CONFIRMED" diagram_role="production">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="610" y="145" width="210" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_gauss" label="giai_he_gauss()" source_file="src/lsm_solver.py" function_or_scope="giai_he_gauss()" confidence="CONFIRMED" diagram_role="production">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="610" y="220" width="210" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_pipeline" label="binh_phuong_toi_thieu()" source_file="src/lsm_solver.py" function_or_scope="binh_phuong_toi_thieu()" confidence="CONFIRMED" diagram_role="production">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="610" y="310" width="210" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_check" label="kiem_tra_du_lieu()" source_file="src/lsm_solver.py" function_or_scope="kiem_tra_du_lieu()" confidence="CONFIRMED" diagram_role="production">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="610" y="400" width="210" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_read" label="doc_du_lieu_csv()" source_file="src/lsm_solver.py" function_or_scope="doc_du_lieu_csv()" confidence="CONFIRMED" diagram_role="production">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="610" y="475" width="210" height="52" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="p5_gap" label="Chưa test trực tiếp&#10;main.py: fmt/report/CLI/main&#10;visualizer.py: vẽ và lưu PNG" source_file="src/main.py; src/visualizer.py" function_or_scope="not directly tested" confidence="CONFIRMED" diagram_role="coverage gap">
+          <mxCell style="rounded=1;arcSize=8;dashed=1;dashPattern=8 4;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="875" y="170" width="235" height="155" as="geometry" />
+          </mxCell>
+        </object>
+        <mxCell id="p5e1" value="chạy" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_runner" target="p5_t1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e2" value="chạy" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_runner" target="p5_t2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e3" value="chạy" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_runner" target="p5_t3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e4" value="chạy" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_runner" target="p5_t4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e5" value="tổng hợp" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_runner" target="p5_exit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e6" value="trực tiếp" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_t1" target="p5_sum">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e7" value="trực tiếp" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_t1" target="p5_norm">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e8" value="trực tiếp" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_t1" target="p5_gauss">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e9" value="so sánh" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="p5_t1" target="p5_assert">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e10" value="trực tiếp" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_t2" target="p5_pipeline">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e11" value="3a, 3b" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_t3" target="p5_check">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e12" value="3c" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_t3" target="p5_read">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e13" value="trực tiếp" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="1" source="p5_t4" target="p5_pipeline">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e14" value="thống kê" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="p5_t4" target="p5_assert">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5e15" value="không test trực tiếp" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Arial;fontSize=11;labelBackgroundColor=#ffffff;endArrow=block;endFill=1;strokeColor=#666666;dashed=1;dashPattern=8 4;" edge="1" parent="1" source="p5_pipeline" target="p5_gap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="05_Ph_m_vi_ki_m_th_legend_title" value="Chú giải: màu/viền chỉ hỗ trợ đọc nhanh; nhãn và edge mới là nguồn ý nghĩa." style="text;html=1;strokeColor=none;fillColor=none;fontFamily=Arial;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="40" y="745" width="520" height="25" as="geometry" />
+        </mxCell>
+        <object id="05_Ph_m_vi_ki_m_th_leg_0" label="Test/runner" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+            <mxGeometry x="40" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="05_Ph_m_vi_ki_m_th_leg_1" label="Helper" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="205" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="05_Ph_m_vi_ki_m_th_leg_2" label="Production được gọi" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+            <mxGeometry x="370" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+        <object id="05_Ph_m_vi_ki_m_th_leg_3" label="Coverage gap" source_file="docs/diagrams" function_or_scope="legend" confidence="CONFIRMED" diagram_role="legend">
+          <mxCell style="rounded=1;arcSize=8;dashed=1;dashPattern=8 4;whiteSpace=wrap;html=1;fontFamily=Arial;fontSize=12;align=center;verticalAlign=middle;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+            <mxGeometry x="535" y="775" width="150" height="28" as="geometry" />
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
